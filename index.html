@@ -1,58 +1,29 @@
 <!DOCTYPE html>
-<html lang="pt-BR">
+<html lang="pt-br">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Aplicação CRUD</title>
-    <link rel="stylesheet" href="styles.css">
+    <title>CRUD de Nomes</title>
+    <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
 </head>
 <body>
-    <div class="container">
-        <h1>Sistema CRUD</h1>
-        
-        <div id="statusMessage" class="status-message" style="display: none;"></div>
-        
-        <form id="dataForm">
-            <input type="hidden" id="itemId">
-            
-            <div class="form-group">
-                <label for="name">Nome:</label>
-                <input type="text" id="name" required>
+    <div class="container mt-5">
+        <h1 class="text-center mb-4">Gerenciamento de Nomes</h1>
+        <div class="input-group mb-3">
+            <input type="text" id="nomeInput" class="form-control" placeholder="Digite um nome">
+            <input type="hidden" id="idEdicao">
+            <div class="input-group-append">
+                <button class="btn btn-primary" id="btnAcao">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-plus-lg" viewBox="0 0 16 16">
+                        <path fill-rule="evenodd" d="M8 2a.5.5 0 0 1 .5.5v5h5a.5.5 0 0 1 0 1h-5v5a.5.5 0 0 1-1 0v-5h-5a.5.5 0 0 1 0-1h5v-5A.5.5 0 0 1 8 2"/>
+                    </svg>
+                    Adicionar
+                </button>
             </div>
-            
-            <div class="form-group">
-                <label for="email">Email:</label>
-                <input type="email" id="email" required>
-            </div>
-            
-            <div class="form-group">
-                <label for="description">Descrição:</label>
-                <textarea id="description" rows="3"></textarea>
-            </div>
-            
-            <div class="btn-group">
-                <button type="button" id="createBtn">Criar</button>
-                <button type="button" id="updateBtn" class="update" disabled>Atualizar</button>
-                <button type="button" id="deleteBtn" class="delete" disabled>Deletar</button>
-                <button type="button" id="clearBtn" class="clear">Limpar</button>
-            </div>
-        </form>
-        
-        <h2>Dados Cadastrados</h2>
-        <div id="loading" class="loading" style="display: none;">Carregando dados</div>
-        <table id="dataTable">
-            <thead>
-                <tr>
-                    <th>Nome</th>
-                    <th>Email</th>
-                    <th>Descrição</th>
-                    <th>Ações</th>
-                </tr>
-            </thead>
-            <tbody>
-                <!-- Os dados serão inseridos dinamicamente aqui -->
-            </tbody>
-        </table>
+        </div>
+        <div id="mensagem" class="alert d-none"></div>
+        <ul id="listaNomes" class="list-group"></ul>
     </div>
 
     <script src="script.js"></script>
